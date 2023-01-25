@@ -1,0 +1,33 @@
+.nav {
+    padding: 5px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+}
+
+.backgroundBtn {
+    padding: 10px;
+}
+
+.backgroundBtn:hover {
+    background-color: #fff6e4;
+    transition: 0.6s;
+}
+
+.noactive:hover {
+    color: #db9200;
+}
+
+.noactive {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.active {
+    color: #db9200;
+    text-decoration: none;
+    font-size: 20px;
+}

@@ -4,21 +4,17 @@ import Post from '../components/Post';
 import style from './Posts.module.css';
 
 function Posts({ arrPosts, deletePost }) {
+    if (!arrPosts.length) {
+        return <h2 className={style.h2}>Постов нет</h2>;
+    }
+
     return (
         <div className={style.posts}>
-            {arrPosts.length ? (
-                arrPosts.map((post) => {
-                    return (
-                        <Post
-                            {...post}
-                            key={uuidv4()}
-                            deletePost={deletePost}
-                        />
-                    );
-                })
-            ) : (
-                <h2 className={style.h2}>Постов нет</h2>
-            )}
+            {arrPosts.map((post) => {
+                return (
+                    <Post {...post} key={uuidv4()} deletePost={deletePost} />
+                );
+            })}
         </div>
     );
 }

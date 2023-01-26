@@ -1,7 +1,7 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Post from '../components/Post';
 import style from './Posts.module.css';
-import { v4 as uuidv4 } from 'uuid';
 
 function Posts({ arrPosts, deletePost }) {
     return (

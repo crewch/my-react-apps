@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import CreatePost from './components/CreatePost';
 import Posts from './components/Posts';
 import PostFilter from './components/PostFilter';
+import MyModal from './components/UI/MyModal';
+import style from './AppPosts.module.css';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -10,6 +12,7 @@ function App() {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState({ sort: '', string: '' });
+    const [modalState, setModalState] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -41,6 +44,7 @@ function App() {
                 discription: discription,
             })
         );
+        setModalState(false);
     }
 
     function deletePost(id) {
@@ -77,14 +81,20 @@ function App() {
 
     return (
         <div style={{ backgroundColor: '#f0f0f0' }}>
-            <h1 style={{ textAlign: 'center', padding: '10px' }}>
-                Создание постов
-            </h1>
-            <hr />
-            <CreatePost addPost={addPost} />
+            <MyModal modalState={modalState} setModalState={setModalState}>
+                <CreatePost addPost={addPost} />
+            </MyModal>
             <h1 style={{ textAlign: 'center', margin: '10px' }}>Посты</h1>
             <hr />
-            <PostFilter filter={filter} setFilter={setFilter} />
+            <div style={{ display: 'flex' }}>
+                <button
+                    onClick={() => setModalState(true)}
+                    className={style.createBnt}
+                >
+                    Создать пост
+                </button>
+                <PostFilter filter={filter} setFilter={setFilter} />
+            </div>
             {isLoading ? (
                 <h1>Loading...</h1>
             ) : error ? (

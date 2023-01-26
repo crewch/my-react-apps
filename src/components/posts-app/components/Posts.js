@@ -11,7 +11,12 @@ function Posts({ arrPosts, deletePost }) {
         <div className={style.posts}>
             {arrPosts.map((post, index) => {
                 return (
-                    <Post {...post} deletePost={deletePost} index={index} key={post.id} />
+                    <Post
+                        {...post}
+                        deletePost={deletePost}
+                        index={index}
+                        key={post.id}
+                    />
                 );
             })}
         </div>

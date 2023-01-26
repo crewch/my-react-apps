@@ -5,6 +5,7 @@ import PostFilter from './components/PostFilter';
 import MyModal from './components/UI/MyModal';
 import { v4 as uuidv4 } from 'uuid';
 import style from './AppPosts.module.css';
+import './Animations.css';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 

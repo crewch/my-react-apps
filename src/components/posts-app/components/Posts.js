@@ -9,18 +9,19 @@ function Posts({ arrPosts, deletePost }) {
     }
 
     return (
-        <TransitionGroup className={style.posts}>
-            {arrPosts.map((post, index) => (
-                <CSSTransition key={post.id} timeout={500} classNames="item">
-                    <Post
-                        {...post}
-                        deletePost={deletePost}
-                        index={index}
+        <div className={style.posts}>
+            <TransitionGroup>
+                {arrPosts.map((post, index) => (
+                    <CSSTransition
                         key={post.id}
-                    />
-                </CSSTransition>
-            ))}
-        </TransitionGroup>
+                        timeout={500}
+                        classNames="item"
+                    >
+                        <Post {...post} deletePost={deletePost} index={index} />
+                    </CSSTransition>
+                ))}
+            </TransitionGroup>
+        </div>
     );
 }
 

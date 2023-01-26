@@ -15,9 +15,9 @@ function App() {
                         <Route index={true} element={<Home />} />
                         <Route path="posts" element={<AppPosts />} />
                         <Route path="todos" element={<AppTodos />} />
-                        <Route path="/:slug" element={<NotFound />} />
-                        <Route path="posts/:slug" element={<NotFound />} />
-                        <Route path="todos/:slug" element={<NotFound />} />
+                        <Route path="*" element={<NotFound />} />
+                        <Route path="posts/*" element={<NotFound />} />
+                        <Route path="todos/*" element={<NotFound />} />
                     </Route>
                 </Routes>
             </div>

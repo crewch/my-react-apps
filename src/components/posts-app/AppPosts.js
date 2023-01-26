@@ -54,7 +54,6 @@ function App() {
     }
 
     const sortedPosts = useMemo(() => {
-        console.log('Отработала');
         if (filter.sort === '') {
             return arrPosts;
         }

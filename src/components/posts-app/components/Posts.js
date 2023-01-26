@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Post from '../components/Post';
 import style from './Posts.module.css';
 
@@ -10,9 +9,9 @@ function Posts({ arrPosts, deletePost }) {
 
     return (
         <div className={style.posts}>
-            {arrPosts.map((post) => {
+            {arrPosts.map((post, index) => {
                 return (
-                    <Post {...post} key={uuidv4()} deletePost={deletePost} />
+                    <Post {...post} deletePost={deletePost} index={index} key={post.id} />
                 );
             })}
         </div>

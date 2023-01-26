@@ -3,6 +3,7 @@ import CreatePost from './components/CreatePost';
 import Posts from './components/Posts';
 import PostFilter from './components/PostFilter';
 import MyModal from './components/UI/MyModal';
+import { v4 as uuidv4 } from 'uuid';
 import style from './AppPosts.module.css';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
@@ -22,7 +23,7 @@ function App() {
                 setPosts(
                     posts.map((item) => {
                         return {
-                            id: item.id,
+                            id: uuidv4(),
                             title: item.title,
                             discription: item.body,
                         };
@@ -39,7 +40,7 @@ function App() {
     function addPost(title, discription) {
         setPosts(
             arrPosts.concat({
-                id: arrPosts.length + 1,
+                id: uuidv4(),
                 title: title,
                 discription: discription,
             })
@@ -51,8 +52,8 @@ function App() {
         setPosts(
             arrPosts
                 .filter((item) => item.id !== id)
-                .map((item, index) => {
-                    return { ...item, id: index + 1 };
+                .map((item) => {
+                    return { ...item, id: uuidv4() };
                 })
         );
     }

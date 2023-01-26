@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Post from '../components/Post';
 import style from './Posts.module.css';
 
@@ -8,18 +9,18 @@ function Posts({ arrPosts, deletePost }) {
     }
 
     return (
-        <div className={style.posts}>
-            {arrPosts.map((post, index) => {
-                return (
+        <TransitionGroup className={style.posts}>
+            {arrPosts.map((post, index) => (
+                <CSSTransition key={post.id} timeout={500} classNames="item">
                     <Post
                         {...post}
                         deletePost={deletePost}
                         index={index}
                         key={post.id}
                     />
-                );
-            })}
-        </div>
+                </CSSTransition>
+            ))}
+        </TransitionGroup>
     );
 }
 

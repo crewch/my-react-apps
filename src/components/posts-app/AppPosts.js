@@ -49,13 +49,7 @@ function App() {
     }
 
     function deletePost(id) {
-        setPosts(
-            arrPosts
-                .filter((item) => item.id !== id)
-                .map((item) => {
-                    return { ...item, id: uuidv4() };
-                })
-        );
+        setPosts(arrPosts.filter((item) => item.id !== id));
     }
 
     const sortedPosts = useMemo(() => {

@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CreatePost from './components/CreatePost';
 import Posts from './components/Posts';
 import PostFilter from './components/PostFilter';
 import MyModal from './components/UI/MyModal';
 import { v4 as uuidv4 } from 'uuid';
 import style from './AppPosts.module.css';
+import { usePosts } from './hooks/usePosts';
 import './Animations.css';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
@@ -53,27 +54,11 @@ function App() {
         setPosts(arrPosts.filter((item) => item.id !== id));
     }
 
-    const sortedPosts = useMemo(() => {
-        if (filter.sort === '') {
-            return arrPosts;
-        }
-
-        if (filter.sort === 'id') {
-            return [...arrPosts].sort((a, b) => a.id - b.id);
-        } else {
-            return [...arrPosts].sort((a, b) =>
-                a[filter.sort].localeCompare(b[filter.sort])
-            );
-        }
-    }, [filter.sort, arrPosts]);
-
-    const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPosts.filter(
-            (post) =>
-                post.title.includes(filter.string) ||
-                post.discription.includes(filter.string)
-        );
-    }, [filter.string, sortedPosts]);
+    const sortedAndSearchedPosts = usePosts(
+        arrPosts,
+        filter.sort,
+        filter.string
+    );
 
     return (
         <div style={{ backgroundColor: '#f0f0f0' }}>

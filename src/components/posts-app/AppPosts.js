@@ -4,12 +4,11 @@ import Posts from './components/Posts';
 import PostFilter from './components/PostFilter';
 import MyModal from './components/UI/MyModal';
 import { v4 as uuidv4 } from 'uuid';
-import style from './AppPosts.module.css';
 import { usePosts } from './hooks/usePosts';
+import PostServise from './API/PostServise';
+import Loader from './components/UI/Loader';
+import style from './AppPosts.module.css';
 import './Animations.css';
-import axios from 'axios';
-
-const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 function App() {
     const [arrPosts, setPosts] = useState([]);
@@ -21,9 +20,9 @@ function App() {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get(API_URL);
+                const posts = await PostServise.getAll();
                 setPosts(
-                    response.data.map((item) => {
+                    posts.map((item) => {
                         return {
                             id: uuidv4(),
                             title: item.title,
@@ -77,7 +76,15 @@ function App() {
                 <PostFilter filter={filter} setFilter={setFilter} />
             </div>
             {isLoading ? (
-                <h1>Loading...</h1>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginTop: '50px',
+                    }}
+                >
+                    <Loader />
+                </div>
             ) : error ? (
                 <h1>Error: {error}!</h1>
             ) : (

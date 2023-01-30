@@ -7,35 +7,31 @@ import { v4 as uuidv4 } from 'uuid';
 import { usePosts } from './hooks/usePosts';
 import PostServise from './API/PostServise';
 import Loader from './components/UI/Loader';
+import { useFetching } from './hooks/useFetching';
 import style from './AppPosts.module.css';
 import './Animations.css';
 
 function App() {
     const [arrPosts, setPosts] = useState([]);
-    const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState({ sort: '', string: '' });
     const [modalState, setModalState] = useState(false);
 
+    const [fetching, isLoading, error] = useFetching(async () => {
+        const posts = await PostServise.getAll();
+        setPosts(
+            posts.map((item) => {
+                return {
+                    id: uuidv4(),
+                    title: item.title,
+                    discription: item.body,
+                };
+            })
+        );
+    });
+
     useEffect(() => {
-        (async () => {
-            try {
-                const posts = await PostServise.getAll();
-                setPosts(
-                    posts.map((item) => {
-                        return {
-                            id: uuidv4(),
-                            title: item.title,
-                            discription: item.body,
-                        };
-                    })
-                );
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setIsLoading(false);
-            }
-        })();
+        fetching();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function addPost(title, discription) {

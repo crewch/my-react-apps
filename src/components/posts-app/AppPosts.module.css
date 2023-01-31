@@ -9,3 +9,27 @@
     font-size: 14px;
     border-radius: 5px;
 }
+
+.page__wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border: 1px solid goldenrod;
+    cursor: pointer;
+}
+
+.navBnt {
+    width: 50px;
+    border: 2px solid blanchedalmond;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: blanchedalmond;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.page__current {
+    border: 2px solid orange;
+    font-weight: bold;     
+}

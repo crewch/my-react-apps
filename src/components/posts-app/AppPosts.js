@@ -9,7 +9,7 @@ import PostServise from './API/PostServise';
 import Loader from './components/UI/Loader';
 import { useFetching } from './hooks/useFetching';
 import { getPageCount } from './utils/pages';
-import { usePagination } from './hooks/usePagination';
+import Pagination from './components/UI/Pagination';
 import style from './AppPosts.module.css';
 import './Animations.css';
 
@@ -20,8 +20,6 @@ function App() {
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(10);
     const [page, setPage] = useState(1);
-
-    let pagesArray = usePagination(totalPages);
 
     const [fetching, isLoading, error] = useFetching(async () => {
         const response = await PostServise.getAll(limit, page);
@@ -116,21 +114,7 @@ function App() {
                     arrPosts={sortedAndSearchedPosts}
                 />
             )}
-            <div className={style.page__wrapper}>
-                {pagesArray.map((p) => (
-                    <button
-                        onClick={() => setPage(p)}
-                        key={uuidv4()}
-                        className={
-                            p === page
-                                ? [style.navBnt, style.page__current].join(' ')
-                                : style.navBnt
-                        }
-                    >
-                        {p}
-                    </button>
-                ))}
-            </div>
+            <Pagination totalPages={totalPages} setPage={setPage} page={page} />
         </div>
     );
 }

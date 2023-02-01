@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import CreatePost from './components/CreatePost';
 import Posts from './components/Posts';
 import PostFilter from './components/PostFilter';
 import MyModal from './components/UI/MyModal';
-import { v4 as uuidv4 } from 'uuid';
 import { usePosts } from './hooks/usePosts';
 import PostServise from './API/PostServise';
 import Loader from './components/UI/Loader';
@@ -68,10 +68,6 @@ function App() {
         filter.string
     );
 
-    function changeLimit(limit) {
-        setLimit(limit);
-    }
-
     return (
         <div style={{ backgroundColor: '#f0f0f0' }}>
             <MyModal modalState={modalState} setModalState={setModalState}>
@@ -90,13 +86,13 @@ function App() {
                 <div>
                     <button
                         className={style.createBnt}
-                        onClick={() => changeLimit(10)}
+                        onClick={() => setLimit(10)}
                     >
                         лимит 10
                     </button>
                     <button
                         className={style.createBnt}
-                        onClick={() => changeLimit(20)}
+                        onClick={() => setLimit(20)}
                     >
                         лимит 20
                     </button>

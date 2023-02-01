@@ -18,7 +18,7 @@ function App() {
     const [filter, setFilter] = useState({ sort: '', string: '' });
     const [modalState, setModalState] = useState(false);
     const [totalPages, setTotalPages] = useState(0);
-    const [limit] = useState(10);
+    const [limit, setLimit] = useState(10);
     const [page, setPage] = useState(1);
 
     let pagesArray = usePagination(totalPages);
@@ -44,7 +44,7 @@ function App() {
     useEffect(() => {
         fetching();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [page]);
+    }, [page, limit]);
 
     function addPost(title, discription) {
         setPosts(
@@ -68,8 +68,8 @@ function App() {
         filter.string
     );
 
-    function changePage(page) {
-        setPage(page);
+    function changeLimit(limit) {
+        setLimit(limit);
     }
 
     return (
@@ -87,6 +87,20 @@ function App() {
                     Создать пост
                 </button>
                 <PostFilter filter={filter} setFilter={setFilter} />
+                <div>
+                    <button
+                        className={style.createBnt}
+                        onClick={() => changeLimit(10)}
+                    >
+                        лимит 10
+                    </button>
+                    <button
+                        className={style.createBnt}
+                        onClick={() => changeLimit(20)}
+                    >
+                        лимит 20
+                    </button>
+                </div>
             </div>
             {isLoading ? (
                 <div
@@ -109,7 +123,7 @@ function App() {
             <div className={style.page__wrapper}>
                 {pagesArray.map((p) => (
                     <button
-                        onClick={() => changePage(p)}
+                        onClick={() => setPage(p)}
                         key={uuidv4()}
                         className={
                             p === page

@@ -11,13 +11,13 @@ function Posts({ arrPosts, deletePost }) {
     return (
         <div className={style.posts}>
             <TransitionGroup>
-                {arrPosts.map((post, index) => (
+                {arrPosts.map((post) => (
                     <CSSTransition
                         key={post.id}
                         timeout={500}
                         classNames="item"
                     >
-                        <Post {...post} deletePost={deletePost} index={index} />
+                        <Post {...post} deletePost={deletePost} />
                     </CSSTransition>
                 ))}
             </TransitionGroup>

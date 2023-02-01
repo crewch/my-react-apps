@@ -5,6 +5,7 @@ import AppPosts from './components/posts-app/AppPosts.js';
 import AppTodos from './components/todo-app/AppTodos.js';
 import './App.css';
 import NotFound from './components/NotFound';
+import PostIdPage from './components/posts-app/components/PostIdPage';
 
 function App() {
     return (
@@ -15,9 +16,8 @@ function App() {
                         <Route index={true} element={<Home />} />
                         <Route path="posts" element={<AppPosts />} />
                         <Route path="todos" element={<AppTodos />} />
+                        <Route path="posts/:pageId" element={<PostIdPage />} />
                         <Route path="*" element={<NotFound />} />
-                        <Route path="posts/*" element={<NotFound />} />
-                        <Route path="todos/*" element={<NotFound />} />
                     </Route>
                 </Routes>
             </div>

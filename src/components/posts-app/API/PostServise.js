@@ -12,4 +12,18 @@ export default class PostServise {
         });
         return response;
     }
+
+    static async getByid(id) {
+        const API_URL = `https://jsonplaceholder.typicode.com/posts/${id}`;
+
+        const response = await axios.get(API_URL);
+        return response;
+    }
+
+    static async getCommentsByPostId(id) {
+        const API_URL = `https://jsonplaceholder.typicode.com/posts/${id}/comments`;
+
+        const response = await axios.get(API_URL);
+        return response;
+    }
 }

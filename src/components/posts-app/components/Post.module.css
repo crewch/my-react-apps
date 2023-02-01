@@ -12,6 +12,7 @@
 
 .postBtn {
     width: 150px;
+    margin: 5px;
     padding: 5px 15px;
     border: 2px solid blanchedalmond;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);

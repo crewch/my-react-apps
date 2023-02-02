@@ -1,0 +1,30 @@
+.post {
+    /* display: flex; */
+    margin: auto 25% auto 25%;
+    padding: 10px;
+    max-width: 50%;
+    text-align: center;
+}
+
+.btn {
+    width: 150px;
+    margin-top: 5px;
+    padding: 5px 15px;
+    border: 2px solid blanchedalmond;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: blanchedalmond;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.input {
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 15px;
+    border: 2px solid blanchedalmond;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    margin: 5px 0;
+}

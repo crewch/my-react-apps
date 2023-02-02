@@ -1,8 +1,8 @@
-function Input({ text, func, className, value }) {
+function Input({ text, func, className, value, type }) {
     return (
         <input
             placeholder={text}
-            type="text"
+            type={type}
             className={className}
             onChange={func}
             value={value}

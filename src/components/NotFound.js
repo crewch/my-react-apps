@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function NotFound() {
-    const navigator = useNavigate();
+	const navigator = useNavigate()
 
-    useEffect(() => {
-        navigator(-1);
-    }, [navigator]);
+	useEffect(() => {
+		navigator(-1)
+	}, [navigator])
 }
 
-export default NotFound;
+export default NotFound

@@ -1,19 +1,19 @@
 .searchInput {
-    font-size: 14px;
-    padding: 5px 15px;
-    border: 2px solid blanchedalmond;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: blanchedalmond;
-    border-radius: 5px;
-    margin: 20px;
+	font-size: 14px;
+	padding: 5px 15px;
+	border: 2px solid blanchedalmond;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	background-color: blanchedalmond;
+	border-radius: 5px;
+	margin: 20px;
 }
 
 .sort {
-    font-size: 14px;
-    padding: 5px 15px;
-    border: 2px solid blanchedalmond;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: blanchedalmond;
-    border-radius: 5px;
-    margin: 20px;
+	font-size: 14px;
+	padding: 5px 15px;
+	border: 2px solid blanchedalmond;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	background-color: blanchedalmond;
+	border-radius: 5px;
+	margin: 20px;
 }

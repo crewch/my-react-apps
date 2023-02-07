@@ -1,33 +1,33 @@
 .buttons {
-    display: flex;
-    justify-content: center;
-    margin: auto 10px;
-    margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	margin: auto 10px;
+	margin-bottom: 10px;
 }
 
 .deleteAll,
 .deleteDone {
-    border: 0;
-    height: 50px;
-    width: 50px;
-    background: rgb(240, 225, 207);
-    font-size: 1.5rem;
-    transition: transform 0.3s;
-    padding: 12px 10px;
-    margin: 5px;
-    border-radius: 5px;
+	border: 0;
+	height: 50px;
+	width: 50px;
+	background: rgb(240, 225, 207);
+	font-size: 1.5rem;
+	transition: transform 0.3s;
+	padding: 12px 10px;
+	margin: 5px;
+	border-radius: 5px;
 }
 
 .deleteAll:hover,
 .deleteDone:hover {
-    cursor: pointer;
-    transform: scale(1.3);
+	cursor: pointer;
+	transform: scale(1.3);
 }
 
 .deleteAll:hover {
-    color: green;
+	color: green;
 }
 
 .deleteDone:hover {
-    color: red;
+	color: red;
 }

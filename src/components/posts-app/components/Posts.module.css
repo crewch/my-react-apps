@@ -1,10 +1,10 @@
 .h2 {
-    text-align: center;
-    margin: 20px;
+	text-align: center;
+	margin: 20px;
 }
 
 .posts {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px 20px 20px;
+	display: flex;
+	flex-direction: column;
+	padding: 0 20px 20px 20px;
 }

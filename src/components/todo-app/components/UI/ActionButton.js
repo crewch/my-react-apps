@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-function ActionButton({ func, style, children}) {
-    return (
-        <button onClick={func} className={style}>
-            {children}
-        </button>
-    );
+function ActionButton({ func, style, children }) {
+	return (
+		<button onClick={func} className={style}>
+			{children}
+		</button>
+	)
 }
 
-export default ActionButton;
+export default ActionButton
